@@ -41,6 +41,7 @@ class AddToCartController extends AbstractController
         SalesChannelContext $context
     ): ?Response {
         $quantity = $request->query->get('quantity', 1);
+        $isAjax = $request->query->get('ajax', 0);
 
         // Sanitizing the quantity input to ensure it's a valid integer
         $quantity = filter_var($quantity, FILTER_SANITIZE_NUMBER_INT);
@@ -61,16 +62,24 @@ class AddToCartController extends AbstractController
         if (!$product instanceof ProductEntity) {
             $this->logger->error('Product not found: ' . $productNumber);
             $this->addFlash('danger', 'product could not be added.');
-    
-            return $this->redirectToRoute('frontend.checkout.cart.page');
+            if(!$isAjax) {
+                return $this->redirectToRoute('frontend.checkout.cart.page');
+            } 
+            else {
+                return new Response('', 302);
+            }
         }
         
         // Check if the product has variants
         if ($product->getChildCount() > 0) {
             $this->logger->error('Variable product was not implicit enough: ' . $productNumber);
             $this->addFlash('danger', 'product could not be added.');
-    
-            return $this->redirectToRoute('frontend.checkout.cart.page');
+            if(!$isAjax) {
+                return $this->redirectToRoute('frontend.checkout.cart.page');
+            } 
+            else {
+                return new Response('', 302);
+            }
         }
 
         // Retrieve the current cart
@@ -95,6 +104,11 @@ class AddToCartController extends AbstractController
             $context
         );
 
-        return $this->redirectToRoute('frontend.checkout.cart.page');
+        if(!$isAjax) {
+            return $this->redirectToRoute('frontend.checkout.cart.page');
+        } 
+        else {
+            return new Response('', 302);
+        }
     }
 }
