@@ -2,7 +2,6 @@
     "name": "qonfi/shopware",
     "description": "qonfi/shopware",
     "type": "shopware-platform-plugin",
-    "version": "1.0.0",
     "license": "MIT",
     "require": {
         "shopware/core": ">=6.0.0"
