@@ -1,0 +1,22 @@
+{
+    "name": "qonfi/shopware",
+    "description": "qonfi/shopware",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "=>6.0.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Qonfi\\Qonfi",
+        "label": {
+            "de-DE": "Qonfi plugin",
+            "en-GB": "Qonfi plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Qonfi\\": "src/"
+        }
+    }
+}

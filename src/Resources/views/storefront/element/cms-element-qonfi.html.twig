@@ -1,0 +1,50 @@
+{% block element_qonfi %}
+    <div class="cms-element-qonfi" style="height:100%; width:100%">
+        {% block element_qonfi_image_inner %}
+
+            {# Prepare attributes and styles #}
+            {% set showProductId = element.config.qonfiProductCheck.value and page.product is defined %}
+            {% set productIdAttr = showProductId ? 'data-qonfi-product-id="' ~ page.product.productNumber ~ '"' : '' %}
+
+            {% set blockStyles = [] %}
+            {% if element.config.qonfiBackgroundColor.value %}
+                {% set blockStyles = blockStyles|merge(['background-color:' ~ element.config.qonfiBackgroundColor.value]) %}
+            {% endif %}
+            {% set blockStyles = blockStyles|merge(['justify-content: space-around']) %}
+            {% if page.product.productNumber is defined and element.config.qonfiProductCheck.value %}
+                {% set blockStyles = blockStyles|merge(['display: none']) %}
+            {% endif %}
+
+            {% set textColor = element.config.qonfiTextColor.value %}
+            {% set btnBgColor = element.config.qonfiBTNBackgroundColor.value %}
+            {% set btnTextColor = element.config.qonfiBTNTextColor.value %}
+
+            <div 
+                data-qonfi-uuid="{{ element.config.qonfiId.value }}"
+                data-qonfi-view-type="{{ element.config.qonfiDisplayType.value }}"
+                data-qonfi-lang="{{ app.request.locale|slice(0,2) }}"
+                {{ productIdAttr|raw }}
+                class="qonfi-block"
+                style="{{ blockStyles|join('; ') }}"
+            >
+                <div class="sw-cms-el-qonfi__text" {% if textColor %}style="color:{{ textColor }}"{% endif %}>
+                    <h2 {% if textColor %}style="color:{{ textColor }}"{% endif %}>
+                        {{ element.config.qonfiTitle.value }}
+                    </h2>
+
+                    {% if element.config.qonfiText.value %}
+                        <p>{{ element.config.qonfiText.value }}</p>
+                    {% endif %}
+                </div>
+                <button class="btn btn-primary"
+                        style="
+                            border:0px;
+                            {% if btnBgColor %}background-color:{{ btnBgColor }};{% endif %}
+                            {% if btnTextColor %}color:{{ btnTextColor }};{% endif %}
+                        ">
+                    {{ element.config.qonfiBTNText.value }}
+                </button>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

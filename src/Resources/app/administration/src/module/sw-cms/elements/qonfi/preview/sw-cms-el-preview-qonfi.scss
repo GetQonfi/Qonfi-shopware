@@ -1,0 +1,33 @@
+.qonfi-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    justify-content: space-around;
+    height: 100%;
+
+    .qonfi-block-wrapper {
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+
+        .qonfi-block-wrapper-title {
+            color: rgb(0, 0, 0);
+        }
+
+        .qonfi-block-wrapper-button {
+            display: block;
+            line-height: 25px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            background: linear-gradient(rgb(119, 147, 174), rgb(106, 132, 156));
+            border-radius: 4px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}

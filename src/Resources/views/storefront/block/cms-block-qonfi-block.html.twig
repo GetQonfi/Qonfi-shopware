@@ -1,0 +1,13 @@
+{% block block_qonfi_block %}
+    {% set columns = 1 %}
+
+    {% block block_qonfi_block_slot_full %}
+        {% set element = block.slots.getSlot('full') %}
+
+        <div class="col-md-12" data-cms-element-id="{{ element.id }}">
+            {% block block_qonfi_block_slot_full_inner %}
+                {% sw_include '@Storefront/storefront/element/cms-element-' ~ element.type ~ '.html.twig' ignore missing %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

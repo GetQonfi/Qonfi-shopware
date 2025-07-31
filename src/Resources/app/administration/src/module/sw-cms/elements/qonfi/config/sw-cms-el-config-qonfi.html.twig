@@ -1,0 +1,61 @@
+{% block sw_cms_element_qonfi_config %}
+    <sw-text-field
+        v-model="qonfiId"
+        label="Qonfi ID"
+        placeholder="Enter your Qonfi ID..."
+        :required="true"
+    />
+    <sw-select-field
+        v-model="qonfiProductCheck"
+        placeholder="Should the product check be enabled?"
+        label="Product check"
+        :options="productCheckOptions"
+    />
+    <sw-select-field
+        v-model="qonfiDisplayType"
+        placeholder="Enter a display type..."
+        label="Display Type"
+        :options="displayTypeOptions"
+        :required="true"
+    />
+    <sw-text-field
+        v-model="qonfiTitle"
+        label="Title"
+        placeholder="Enter a title..."
+        :required="true"
+    />
+    <sw-text-field
+        v-model="qonfiText"
+        label="Text"
+        placeholder="Enter a text..."
+    />
+    <sw-text-field
+        v-model="qonfiBTNText"
+        label="Button text..."
+        placeholder="Enter button text..."
+        :required="true"
+    />
+    <sw-colorpicker
+        v-model="qonfiTextColor"
+        label="Text color"
+        placeholder="Enter a color..."
+        type="color"
+    />
+    <sw-colorpicker
+        v-model="qonfiBackgroundColor"
+        label="Backgroundcolor"
+        placeholder="Enter a color..."
+        type="color"
+    />
+    <sw-colorpicker
+        v-model="qonfiBTNTextColor"
+        label="Button text color..."
+        placeholder="Enter a color..."
+    />
+    <sw-colorpicker
+        v-model="qonfiBTNBackgroundColor"
+        label="Button backgroundcolor"
+        placeholder="Enter a color..."
+        type="color"
+    />
+{% endblock %}

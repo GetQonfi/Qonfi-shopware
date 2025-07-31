@@ -1,0 +1,27 @@
+.qonfi-block {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px;
+    justify-content: space-around;
+
+    .qonfi-block-text {
+        color: #000000;
+    }
+
+    .qonfi-block-button {
+        display: block;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#7793ae), to(#6a849c));
+        background: linear-gradient(to bottom, #7793ae, #6a849c);
+        border-radius: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
