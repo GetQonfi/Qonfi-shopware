@@ -43,7 +43,6 @@ class AddToCartController extends AbstractController
         $quantity = $request->query->get('quantity', 1);
         $headers = array_change_key_case(getallheaders(), CASE_LOWER);
         $isAjax = (isset($headers['ajax']) && (int)$headers['ajax'] == 1 ) ? 1 : 0;
-        $this->logger->info('Incoming request ajax', ['params' => $isAjax]);
 
         // Sanitizing the quantity input to ensure it's a valid integer
         $quantity = filter_var($quantity, FILTER_SANITIZE_NUMBER_INT);
