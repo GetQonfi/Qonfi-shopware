@@ -22,7 +22,7 @@
             <div 
                 data-qonfi-uuid="{{ element.config.qonfiId.value }}"
                 data-qonfi-view-type="{{ element.config.qonfiDisplayType.value }}"
-                data-qonfi-lang="{{ app.request.locale|slice(0,2) }}"
+                data-qonfi-lang="{{ context.languageInfo.localeCode|slice(0,2) }}"
                 {{ productIdAttr|raw }}
                 class="qonfi-block"
                 style="{{ blockStyles|join('; ') }}"
